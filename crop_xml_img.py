@@ -3,9 +3,9 @@ import xml.etree.ElementTree as ET
 from PIL import Image
 
 
-xml_path = "/home/westwell/hj/hj_data/collect/all/char/data/Annotations"
-image_path = "/home/westwell/hj/hj_data/collect/all/char/data/JPEGImages"
-save_path = "/home/westwell/hj/hj_data/collect/all/sub/"
+xml_path = "/PATH/Annotations"
+image_path = "/PATH/JPEGImages"
+save_path = "PATH/sub/"
 def readAnoXML(filefpath_xml):
     tree = ET.parse(filefpath_xml)
     root = tree.getroot()
