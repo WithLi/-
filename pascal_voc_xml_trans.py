@@ -106,34 +106,31 @@ def trans_function(txt_file,img_path,xml_name):
     for bbox in bboxes:
         point = bbox.split(',')
         x = [int(float(point[i])) for i in [0, 2, 4, 6]]
-        #print(x)
-        #point = bbox.loc[range(8)].tolist()
-        #print(point)
         y = [int(float(point[i])) for i in [1, 3, 5, 7]]
         x_min, x_max = min(x), max(x)
         y_min, y_max = min(y), max(y)
         bbox=bbox.split()
         filename = bbox[0]
-        #print(type(x_min))
+       
         xmin=int(float(x_min))
         ymin=int(float(y_min))
         xmax=int(float(x_max))
         ymax=int(float(y_max))
-        #print([xmin,ymin,xmax,ymax])
+       
         object_position.append([xmin,ymin,xmax,ymax])
     image_path2 = image_path + xml_name[:-4]+'.jpg'
-    #print(image_path2)
+    
     if(cv2.imread(image_path2) is None):
         print(image_path2)
     else:
         img = cv2.imread(image_path2)
         width,height,depth = img.shape
-        xml_filename='/home/xj/competition/test/Annotations/'+xml_name[:-4]+'.xml'
+        xml_filename='PATH'+xml_name[:-4]+'.xml'  #PATH save xml all_path
         pascal_voc_xml_trans(xml_filename,'armor',filename,'armor','armor','armor',str(width),str(height),str(depth),'0','roi','Unspecified','0','0',object_position)
 
 
 
-xml_path = "/home/xj/competition/test/txt_9000"
-image_path = "/home/xj/competition/test/image/"
+xml_path = "PATH"
+image_path = "PATH"
 for xml1 in os.listdir(xml_path):
     trans_function(xml_path,image_path,xml1)
