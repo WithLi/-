@@ -57,7 +57,8 @@ def get_position(x, y, M):
    result = solve([x1,y1],[xo,yo])
    return int(result[xo]),int(result[yo])
     
-#添加放射畸变
+
+    #添加放射畸变
 img = cv2.imread('./data/00002.bmp')
 #img_1 = rot(img,r(60)-30,img.shape,30)
 img_1,M1 = rot(img,r(45)-30,img.shape,30)
